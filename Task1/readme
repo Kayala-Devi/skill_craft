@@ -1,0 +1,38 @@
+# 🚀 Task 01 - Responsive Landing Page
+
+This project is part of my web development training with **SkillCraft Technology**. The goal was to design and build a **responsive landing page** with an interactive navigation menu that enhances the user experience.
+
+---
+
+## 🧩 Task Objective
+
+- ✅ Build a responsive landing page layout.
+- ✅ Create a navigation menu that:
+  - Changes color or style on **scroll**.
+  - Responds visually when **hovering** over menu items.
+- ✅ Ensure the navigation bar is:
+  - **Fixed at the top** of the page.
+  - **Visible across all sections**.
+
+---
+
+## 💡 Key Learnings
+
+Through this task, I enhanced my skills in:
+
+- **HTML** & **CSS**: Structuring and styling responsive layouts.
+- **JavaScript**: Adding dynamic behavior for scroll and hover interactions.
+- **UI/UX Principles**: Building smooth and accessible user interfaces.
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+
+---
+
+## 📁 Folder Structure
+
