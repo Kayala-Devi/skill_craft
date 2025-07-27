@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skillcraft Stopwatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: rgb(84, 157, 20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .stopwatch-wrapper {
+      background: #ffffff;
+      padding: 0;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 520px;
+      overflow: hidden;
+    }
+
+    header {
+      background: maroon;
+      color: white;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 25px 10px;
+      letter-spacing: 1px;
+    }
+
+    .stopwatch-container {
+      padding: 30px 35px;
+      text-align: center;
+    }
+
+    .timer {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #6a0dad;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .buttons button {
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .start { background: #00c853; color: white; }
+    .pause { background: #ff9800; color: white; }
+    .reset { background: #f44336; color: white; }
+    .lap   { background: rgb(16, 110, 148); color: white; }
+
+    .buttons button:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+    .laps {
+      max-height: 200px;
+      overflow-y: auto;
+      text-align: left;
+      padding: 0 10px;
+      border-top: 1px solid #ddd;
+    }
+
+    .lap-item {
+      font-size: 0.95rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 6px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .lap-label {
+      font-weight: 600;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    @media (max-width: 500px) {
+      .timer {
+        font-size: 2.3rem;
+      }
+
+      .buttons button {
+        flex: 1 1 45%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stopwatch-wrapper">
+    <header>Skillcraft Stopwatch</header>
+
+    <div class="stopwatch-container">
+      <div class="timer" id="display">00:00:00.000</div>
+
+      <div class="buttons">
+        <button class="start" onclick="start()">Start</button>
+        <button class="pause" onclick="pause()">Pause</button>
+        <button class="reset" onclick="reset()">Reset</button>
+        <button class="lap" onclick="recordLap()">Lap</button>
+      </div>
+
+      <div class="laps" id="laps"></div>
+    </div>
+
+    <footer>© 2025 Skillcraft Technology | Stopwatch Application</footer>
+  </div>
+
+  <script>
+    let startTime = 0, elapsedTime = 0, timerInterval;
+    const display = document.getElementById('display');
+    const laps = document.getElementById('laps');
+    let lapCount = 0;
+
+    function formatTime(ms) {
+      let date = new Date(ms);
+      let min = String(date.getUTCMinutes()).padStart(2, '0');
+      let sec = String(date.getUTCSeconds()).padStart(2, '0');
+      let milli = String(date.getUTCMilliseconds()).padStart(3, '0');
+      return `${min}:${sec}.${milli}`;
+    }
+
+    function updateTime() {
+      elapsedTime = Date.now() - startTime;
+      display.textContent = formatTime(elapsedTime);
+    }
+
+    function start() {
+      if (!timerInterval) {
+        startTime = Date.now() - elapsedTime;
+        timerInterval = setInterval(updateTime, 10);
+      }
+    }
+
+    function pause() {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+
+    function reset() {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      startTime = 0;
+      elapsedTime = 0;
+      lapCount = 0;
+      display.textContent = '00:00:00.000';
+      laps.innerHTML = '';
+    }
+
+    function recordLap() {
+      if (!timerInterval) return;
+      lapCount++;
+      const lapTime = formatTime(elapsedTime);
+      const lapItem = document.createElement('div');
+      lapItem.className = 'lap-item';
+      lapItem.innerHTML = `<span class="lap-label">Lap ${lapCount}</span><span>${lapTime}</span>`;
+      laps.prepend(lapItem);
+    }
+  </script>
+</body>
+</html>
