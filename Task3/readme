@@ -1,0 +1,55 @@
+# 🎮 Tic-Tac-Toe Web Application
+
+A simple yet interactive Tic-Tac-Toe game built as part of **Task 03** from the **SkillCraft Technology** web development program. This application allows two players to compete against each other or challenge a basic AI opponent.
+
+## 📌 Project Objective
+
+Build a tic-tac-toe web application where players can play against each other or against a computer.  
+Implement functionality to:
+- Handle user clicks
+- Track game state
+- Check for winning or draw conditions
+
+This project focuses on strengthening core skills in **HTML**, **CSS**, and **JavaScript**.
+
+---
+
+## 🚀 Features
+
+- ✅ **Two Game Modes**: Player vs Player and Player vs Computer  
+- 🎯 **Game Logic**: Detects win, draw, and current turn  
+- 🎨 **Responsive Design**: Built with CSS Flexbox and Grid  
+- 🔁 **Restart Button**: Reset game state anytime  
+- ✨ **Highlight Winning Cells** for visual feedback  
+- 🔒 **Input Disabled** after game ends
+
+---
+
+## 📂 Tech Stack
+
+- **HTML5**
+- **CSS3**
+- **JavaScript (ES6)**
+
+---
+
+## 🧠 Concepts Practiced
+
+- DOM Manipulation
+- Event Handling
+- Array and Loop logic
+- Conditional rendering and state management
+- CSS styling and responsiveness
+
+---
+
+
+---
+
+## 🛠️ Getting Started
+
+To run this project locally:
+
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/your-username/tic-tac-toe-skillcraft.git
