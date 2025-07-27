@@ -1,0 +1,44 @@
+# 📝 Task 04 - To-Do Web App
+
+This is a basic **To-Do List Web Application** developed as part of **Task 4** for the Web Development Internship at **Skillcraft**.
+
+The app allows users to:
+- Add and organize tasks
+- Set date and time for each task
+- Mark tasks as completed
+- Edit or delete tasks
+- Maintain an interactive and responsive task list
+
+---
+
+## 🔧 Technologies Used
+
+- **HTML5**
+- **CSS3**
+- **Vanilla JavaScript**
+
+---
+
+## ✨ Features
+
+- 📌 **Add Tasks** — Easily create new tasks with a title, description, date, and time  
+- ✅ **Mark as Completed** — Toggle tasks between completed and pending  
+- ✏️ **Edit Tasks** — Modify task details any time  
+- ❌ **Delete Tasks** — Remove tasks from the list  
+- 🕒 **Set Deadline** — Attach date & time to each task for reminders  
+- 📱 **Responsive Design** — Works on both desktop and mobile screens  
+
+---
+
+## 📸 Preview
+
+![C:\Users\kayal\OneDrive\Pictures\Screenshots](your-screenshot-link-here)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/todo-web-app.git
