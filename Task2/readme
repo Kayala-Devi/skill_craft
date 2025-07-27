@@ -1,0 +1,37 @@
+# ⏱️ Task 02 - Stopwatch Web Application
+
+This project is part of my web development journey with **SkillCraft Technology**. The goal of this task was to build a responsive and user-friendly **stopwatch web application** that allows users to precisely track and record time intervals.
+
+---
+
+## 🎯 Objective
+
+- Build an interactive stopwatch using HTML, CSS, and JavaScript.
+- Implement essential stopwatch features:
+  - Start
+  - Pause
+  - Reset
+  - Record and display **Lap Times**
+- Ensure a clean and accessible user interface.
+
+---
+
+## 🧠 What I Learned
+
+- DOM manipulation and timing functions in **JavaScript**
+- Efficient use of **setInterval()** and **clearInterval()**
+- Building responsive layouts with **HTML/CSS**
+- Handling user interactions and dynamic updates
+
+---
+
+## 🔧 Tech Stack
+
+- **HTML5**
+- **CSS3**
+- **JavaScript (Vanilla)**
+
+---
+
+## 🗂️ Project Structure
+
