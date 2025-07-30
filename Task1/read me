@@ -1,0 +1,109 @@
+# 📊 Level 1 - Task 1: Data Exploration and Preprocessing
+
+This project is part of my data science learning journey. In this task, I performed **exploratory data analysis (EDA)** and **data preprocessing** on a restaurant dataset containing over 9,500 records.
+
+---
+
+## 🔍 Task Objectives
+
+- Explore the dataset and understand its structure
+- Identify the number of rows and columns
+- Check for missing values and handle them accordingly
+- Perform data type conversion if necessary
+- Analyze the target variable `Aggregate rating` and check for class imbalance
+
+---
+
+## 📁 Dataset Overview
+
+The dataset includes information such as:
+
+- Restaurant name, location, and cuisines
+- Cost for two, rating, and votes
+- Delivery and booking options
+
+**Total entries:** 9,551  
+**Total columns:** 21
+
+---
+
+## 📌 Technologies Used
+
+- Python
+- Jupyter Notebook
+- Pandas
+- NumPy
+- Seaborn
+- Matplotlib
+
+---
+
+## ✅ Code Implementation
+
+```python
+# Import necessary libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+
+# Set working directory
+os.chdir(r'C:\Users\kayal\Datascience_1')  # Modify path as per your setup
+
+# Load dataset
+df = pd.read_csv('dataset.csv')
+
+# Preview dataset
+print("Preview of the dataset:")
+display(df.head())
+
+# Shape of the dataset
+print("\nShape of dataset (rows, columns):", df.shape)
+
+# Dataset info
+df.info()
+
+# Check for missing values
+missing = df.isnull().sum()
+print("\nMissing values per column:")
+print(missing[missing > 0])
+
+# Visualize missing values
+plt.figure(figsize=(12, 6))
+sns.heatmap(df.isnull(), cbar=False, cmap='viridis')
+plt.title("Missing Values Heatmap")
+plt.show()
+
+# Handle missing values
+# Fill 'Cuisines' with mode
+if df['Cuisines'].isnull().sum() > 0:
+    mode_cuisine = df['Cuisines'].mode()[0]
+    df['Cuisines'].fillna(mode_cuisine, inplace=True)
+
+# Fill 'Average Cost for two' with median
+if df['Average Cost for two'].isnull().sum() > 0:
+    df['Average Cost for two'].fillna(df['Average Cost for two'].median(), inplace=True)
+
+# Confirm missing values handled
+print("\nMissing values after handling:")
+print(df.isnull().sum().sum(), "missing values remaining.")
+
+# Ensure proper data types
+df['Average Cost for two'] = pd.to_numeric(df['Average Cost for two'], errors='coerce')
+
+# Analyze 'Aggregate rating'
+print("\nAggregate Rating value counts:")
+print(df['Aggregate rating'].value_counts())
+
+# Plot distribution of target variable
+plt.figure(figsize=(10, 5))
+sns.countplot(x='Aggregate rating', data=df, palette='coolwarm')
+plt.title('Distribution of Aggregate Rating')
+plt.xlabel('Aggregate Rating')
+plt.ylabel('Count')
+plt.show()
+
+# Class distribution in %
+rating_distribution = df['Aggregate rating'].value_counts(normalize=True) * 100
+print("\nAggregate Rating class distributi
